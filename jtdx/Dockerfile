@@ -57,8 +57,13 @@ RUN /bin/sh -c echo $TZ > /etc/timezone \
 	alsa-utils \
 	pulseaudio \
         libportaudio2 \
+	x11vnc \
+        xvfb \
+        fluxbox \
 && mkdir /jtdx/ /hamlib//
 ENV LC_ALL=C
+ENV DISPLAY :20
+EXPOSE 5920
 WORKDIR /
 COPY --from=jtbuilder /jtdx/ /jtdx/
 COPY --from=jtbuilder /hamlib/ /hamlib/
